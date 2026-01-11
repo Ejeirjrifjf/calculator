@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>haytam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@400;700;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* التنسيقات (CSS) - تصميم داكن وجريء */
+        :root {
+            --dark-bg: #1a1a2e; /* خلفية داكنة عميقة (كحلي غامق) */
+            --card-bg: #2c2c44; /* لون بطاقة أفتح قليلاً */
+            --neon-blue: #d4f1f1; /* أزرق سماوي نيون */
+            --neon-green: #38c172; /* أخضر نيون للنجاح */
+            --light-text: #f0f0f0; /* نص فاتح */
+            --border-color: #4a4a6b; 
+            --reset-color: #ff6b6b; /* أحمر نيون للتحذير */
+        }
+
+        body {
+            font-family: 'Changa', sans-serif;
+            background-color: var(--dark-bg);
+            margin: 0;
+            padding: 50px 15px;
+            color: var(--light-text);
+            direction: rtl;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 188, 212, 0.2); /* ظل عميق مع توهج أزرق خفيف */
+            border: 1px solid var(--border-color);
+        }
+        h2 {
+            text-align: center;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue), 0 0 20px rgba(0, 188, 212, 0.5); /* تأثير الإضاءة النيون */
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            font-size: 2.8em;
+            font-weight: 800;
+        }
+        p.subtitle {
+            text-align: center;
+            color: #b8b8d1;
+            margin-bottom: 35px;
+            font-size: 1.1em;
+            font-weight: 400;
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 30px;
+            table-layout: fixed;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 14px 8px;
+            text-align: center;
+            vertical-align: middle;
+            transition: background-color 0.3s;
+        }
+        th {
+            background-color: #3b3b5c; /* رأس الجدول داكن */
+            color: var(--neon-blue);
+            font-weight: 700;
+            font-size: 1.1em;
+            border-color: #5c5c85;
+        }
+        /* تلوين الصفوف بالتناوب للتباين */
+        tbody tr:nth-child(odd) {
+            background-color: #31314f;
+        }
+        tbody tr:nth-child(even) {
+            background-color: var(--card-bg);
+        }
+        tbody tr:hover {
+            background-color: #4a4a6b;
+        }
+        td:first-child {
+            text-align: right;
+            font-weight: 600;
+            color: var(--light-text);
+            background-color: #3b3b5c; /* تمييز خانة المادة */
+            padding-right: 15px;
+        }
+        input[type="text"] {
+            width: 85%;
+            padding: 10px 5px;
+            background-color: var(--dark-bg); /* حقول إدخال أغمق */
+            color: var(--light-text);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1em;
+            direction: ltr;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 8px rgba(0, 188, 212, 0.5);
+            outline: none;
+        }
+        .average-cell {
+            background-color: #2e5944; /* خلفية داكنة للأخضر النيون */
+            font-weight: 800;
+            color: var(--neon-green);
+            font-size: 1.25em;
+            border-left: 3px solid var(--neon-green);
+            text-shadow: 0 0 5px rgba(56, 193, 114, 0.8); /* توهج على النتيجة */
+        }
+        #result-box {
+            background-color: #2e5944;
+            color: var(--neon-green);
+            padding: 30px;
+            border-radius: 15px;
+            font-size: 2.5em;
+            font-weight: 800;
+            text-align: center;
+            margin-top: 40px;
+            border: 2px solid var(--neon-green);
+            box-shadow: 0 0 25px rgba(56, 193, 114, 0.7); /* توهج قوي */
+        }
+        .sub-header {
+            background-color: #3b3b5c !important;
+            color: var(--light-text);
+            font-weight: 700;
+        }
+        /* تنسيق زر إعادة الضبط */
+        #reset-button {
+            display: block;
+            width: 300px;
+            padding: 15px;
+            margin: 0 auto 40px auto;
+            background-color: var(--dark-bg);
+            color: var(--reset-color);
+            border: 2px solid var(--reset-color);
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 107, 107, 0.7); /* توهج أحمر */
+            transition: all 0.3s;
+        }
+        #reset-button:hover {
+            background-color: var(--reset-color);
+            color: var(--dark-bg);
+            box-shadow: 0 0 20px var(--reset-color);
+        }
+        
+        /* تنسيق HAYTAM في الأسفل */
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px 0;
+            color: var(--neon-blue);
+            font-size: 1.2em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px var(--neon-blue); /* تأثير الإضاءة النيون */
+        }
+        .footer strong {
+            font-family: 'Orbitron', sans-serif; /* خط رقمي/تقني للاسم */
+            font-size: 1.5em;
+            color: var(--neon-blue);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>حاسبة معدل المراقبة المستمرة</h2>
+        <p class="subtitle"></p>
+        
+        <button id="reset-button" onclick="resetGrades()">🔄 إعادة ضبط جميع النقاط</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2" style="width: 15%;">المادة</th>
+                    <th colspan="4" class="sub-header">علامات الفروض الكتابية</th>
+                    <th rowspan="2">علامة الأنشطة المندمجة</th>
+                    <th rowspan="2" style="width: 12%;">معدل المادة (من 20)</th>
+                </tr>
+                <tr>
+                    <th class="sub-header">الفرض 1</th>
+                    <th class="sub-header">الفرض 2</th>
+                    <th class="sub-header">الفرض 3</th>
+                    <th class="sub-header">الفرض 4</th>
+                </tr>
+            </thead>
+            <tbody id="grades-table-body">
+                </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6" style="text-align: left; font-weight: bold; background-color: #3b3b5c; padding-left: 20px;">مجموع معدلات المواد</td>
+                    <td id="total-simple-average" class="average-cell">---</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div id="result-box">
+            المعدل العام النهائي: <span id="final-average">---</span>
+        </div>
+    </div>
+
+    <div class="footer">
+        <strong></strong>
+    </div>
+
+    <script>
+        // قائمة بالمواد (بالترتيب المطلوب)
+        const subjects = [
+            "الاجتماعيات", "التربية الإسلامية", "التربية البدنية", 
+            "التكنولوجيا", "الرياضيات", "الفيزياء والكيمياء", 
+            "اللغة الإنجليزية", "اللغة العربية", "اللغة الفرنسية", 
+            "المعلوميات", "علوم الحياة والأرض"
+        ];
+
+        const tableBody = document.getElementById('grades-table-body');
+        const totalSimpleAverageElement = document.getElementById('total-simple-average');
+        const finalAverageElement = document.getElementById('final-average');
+        const numInputsPerSubject = 5; 
+        const localStorageKey = 'gradesCalculatorData'; 
+
+        // دالة الحفظ التلقائي
+        function saveGrades() {
+            const gradesData = {};
+            subjects.forEach((subject, index) => {
+                gradesData[subject] = [];
+                for (let i = 0; i < numInputsPerSubject; i++) {
+                    const inputElement = document.getElementById(`grade-${index}-${i}`);
+                    gradesData[subject].push(inputElement.value);
+                }
+            });
+            localStorage.setItem(localStorageKey, JSON.stringify(gradesData));
+        }
+
+        // دالة تحميل العلامات
+        function loadGrades() {
+            const savedData = localStorage.getItem(localStorageKey);
+            if (savedData) {
+                const gradesData = JSON.parse(savedData);
+                subjects.forEach((subject, index) => {
+                    if (gradesData[subject]) {
+                        for (let i = 0; i < numInputsPerSubject; i++) {
+                            const inputElement = document.getElementById(`grade-${index}-${i}`);
+                            if (inputElement && gradesData[subject][i] !== undefined) {
+                                inputElement.value = gradesData[subject][i];
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // دالة إعادة الضبط
+        function resetGrades() {
+            if (confirm("هل أنت متأكد من مسح جميع العلامات؟ سيتم مسح البيانات المحفوظة.")) {
+                // مسح جميع حقول الإدخال
+                subjects.forEach((subject, index) => {
+                    for (let i = 0; i < numInputsPerSubject; i++) {
+                        const inputElement = document.getElementById(`grade-${index}-${i}`);
+                        if (inputElement) {
+                            inputElement.value = ''; 
+                        }
+                    }
+                });
+
+                // مسح البيانات من LocalStorage
+                localStorage.removeItem(localStorageKey);
+
+                // إعادة حساب المعدلات لتحديث الواجهة
+                calculateOverallAverage();
+
+                alert("تم إعادة ضبط جميع النقاط بنجاح!");
+            }
+        }
+        window.resetGrades = resetGrades; 
+
+        // دالة لمعالجة الإدخال
+        function formatAndSaveInput(event) {
+            const input = event.target;
+            input.value = input.value.replace(',', '.');
+            
+            let grade = parseFloat(input.value);
+            if (!isNaN(grade)) {
+                if (grade < 0) input.value = '0';
+                if (grade > 20) input.value = '20';
+            } else if (input.value !== '') {
+                input.value = input.value.replace(/[^0-9.]/g, ''); 
+            }
+            
+            calculateOverallAverage();
+            saveGrades();
+        }
+
+        // دالة لحساب متوسط المادة
+        function calculateSubjectAverage(index) {
+            let sumOfGrades = 0;
+            let countOfGrades = 0;
+            
+            for (let i = 0; i < numInputsPerSubject; i++) {
+                const inputElement = document.getElementById(`grade-${index}-${i}`);
+                const grade = parseFloat(inputElement.value);
+
+                if (!isNaN(grade) && grade >= 0 && grade <= 20) {
+                    sumOfGrades += grade;
+                    countOfGrades++;
+                }
+            }
+
+            let subjectAverage = 0;
+            if (countOfGrades > 0) {
+                subjectAverage = sumOfGrades / countOfGrades;
+            }
+            
+            return subjectAverage;
+        }
+
+        // دالة تحسب المعدل العام وتحديث النتائج
+        function calculateOverallAverage() {
+            let totalSubjectAverages = 0;
+            let countedSubjects = 0;
+
+            subjects.forEach((subject, index) => {
+                const avg = calculateSubjectAverage(index);
+                
+                const avgCell = document.getElementById(`subject-avg-${index}`);
+                if (avg > 0) {
+                    avgCell.textContent = avg.toFixed(2);
+                    totalSubjectAverages += avg;
+                    countedSubjects++;
+                } else {
+                    avgCell.textContent = '0.00';
+                }
+            });
+
+            totalSimpleAverageElement.textContent = totalSubjectAverages.toFixed(2);
+
+            let finalAverage = 0;
+            if (countedSubjects > 0) {
+                finalAverage = totalSubjectAverages / countedSubjects;
+            }
+
+            finalAverageElement.textContent = finalAverage > 0 ? finalAverage.toFixed(2) : '---';
+        }
+
+        // بناء صفوف الجدول عند تحميل الصفحة
+        function buildTable() {
+            subjects.forEach((subject, index) => {
+                const row = tableBody.insertRow();
+                let inputsHtml = '';
+                
+                for (let i = 0; i < numInputsPerSubject; i++) {
+                    inputsHtml += `
+                        <td>
+                            <input type="text" 
+                                id="grade-${index}-${i}" 
+                                placeholder="0.00"
+                                oninput="formatAndSaveInput(event)">
+                        </td>
+                    `;
+                }
+
+                row.innerHTML = `
+                    <td>${subject}</td>
+                    ${inputsHtml}
+                    <td id="subject-avg-${index}" class="average-cell">---</td>
+                `;
+            });
+            
+            loadGrades(); 
+            calculateOverallAverage();
+        }
+
+        // تشغيل وظيفة بناء الجدول عند تحميل الصفحة
+        window.onload = buildTable;
+
+    </script>
+</body>
+</html>

